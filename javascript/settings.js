@@ -322,6 +322,15 @@ Settings.shouldHidePassword = function() {
     return bool == "true";
 }
 
+Settings.setSinglePassword = function(bool) {
+	localStorage["show_single_password"] = bool;
+}
+
+Settings.shouldUseSinglePassword = function() {
+    bool = localStorage["show_single_password"];
+    return bool == "true";
+}
+
 Settings.setKeepMasterPasswordHash = function(bool) {
   localStorage["keep_master_password_hash"] = bool;
 }

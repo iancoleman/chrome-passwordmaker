@@ -72,11 +72,11 @@ function updateFields(e) {
         $("#generatedForClipboard").val("");
         $("#generated").val("Master password mismatch");
         setPasswordColors("#FFFFFF", "#FF7272")
-    } else if (!Settings.keepMasterPasswordHash() && password != confirmation) {
+    } else if (!(Settings.keepMasterPasswordHash() || Settings.shouldUseSinglePassword()) && password != confirmation) {
         $("#generatedForClipboard").val("");
         $("#generated").val("Password wrong");
         setPasswordColors("#FFFFFF", "#FF7272")
-    } else {        
+    } else {
         if (profile != null) {
             var generatedPassword = profile.getPassword($("#usedtext").val(), password);
             $("#generated").val(generatedPassword);
@@ -93,7 +93,7 @@ function updateFields(e) {
     } else {
         hideCopy();
     }
-    if (Settings.keepMasterPasswordHash()) {
+    if (Settings.keepMasterPasswordHash() || Settings.shouldUseSinglePassword()) {
       $("#confirmation_row").css('display', 'none');
     } else {
       $("#confirmation_row").css('display', 'block');

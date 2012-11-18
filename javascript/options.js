@@ -301,6 +301,10 @@ function updateHidePassword() {
     Settings.setHidePassword($("#hidePassword").attr('checked') == true);    
 }
 
+function updateSinglePassword() {
+	Settings.setSinglePassword($("#singlePassword").attr('checked') == true);
+}
+
 function testPasswordLength() {
     if (/\D/.test(this.value)) this.value='8';
 }
@@ -311,6 +315,7 @@ $(function() {
     updateRemoveButton();    
 
     $("#hidePassword").attr('checked', Settings.shouldHidePassword());
+	$("#singlePassword").attr('checked', Settings.shouldUseSinglePassword());
     $("#keepMasterPasswordHash").attr('checked', Settings.keepMasterPasswordHash());
     if (Settings.keepMasterPasswordHash())
       $("#master_password_row").css('visibility', 'visible');
@@ -338,6 +343,7 @@ $(function() {
     $("#export_buttons>a").bind('click', copyRdfExport);
 
     $("#hidePassword").bind('change', updateHidePassword);
+	$("#singlePassword").bind('change', updateSinglePassword);
     $("#keepMasterPasswordHash").bind('change', updateMasterHash);
     $("#syncProfiles").bind('change', updateSyncProfiles);
     $("#masterPassword").bind('blur', updateMasterHash);
