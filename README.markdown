@@ -1,5 +1,7 @@
 # Chrome PasswordMaker Pro
 
+This is a fork that I wanted to experiment with using a single input for the password. However, the existing 'keep master password hash' makes this functionality an inferior implementation of that feature.
+
 ![Dummy Screenshot](http://img405.imageshack.us/img405/6676/bildschirmfoto20100418u.png)
 
 The only thing that kept me from switching to chrome completly was a missing port of the <a href="http://passwordmaker.org/">passwordmaker.org</a>
